@@ -7,5 +7,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 class Lurvel2AppMain
 
 fun main(args: Array<String>) {
-    SpringApplication.run(Lurvel2AppMain::class.java)
+    SpringApplication.run(Lurvel2AppMain::class.java, *args)
 }

@@ -1,4 +1,4 @@
-package nl.vslcatena.lurvel2app
+package nl.vslcatena.lurvel2app.utils
 
 import java.io.File
 import java.io.InputStream

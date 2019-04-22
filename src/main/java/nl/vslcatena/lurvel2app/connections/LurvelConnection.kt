@@ -1,6 +1,7 @@
 package nl.vslcatena.lurvel2app.connections
 
 import nl.vslcatena.lurvel2app.models.User
+import nl.vslcatena.lurvel2app.utils.Env
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,7 +14,7 @@ object LurvelConnection {
 
     fun getUser(username: String, password: String): User? {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://localhost:8091/")
+            .baseUrl(Env.LURVEL_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

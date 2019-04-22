@@ -7,8 +7,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.UserRecord
 import com.google.firebase.cloud.FirestoreClient
-import nl.vslcatena.lurvel2app.FileUtils
+import nl.vslcatena.lurvel2app.utils.FileUtils
 import nl.vslcatena.lurvel2app.models.User
+import nl.vslcatena.lurvel2app.utils.Env
 
 object FirebaseConnection {
     init {
@@ -16,7 +17,7 @@ object FirebaseConnection {
 
         val options = FirebaseOptions.Builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-            .setDatabaseUrl("https://vsl-catena.firebaseio.com/")
+            .setDatabaseUrl(Env.FIREBASE_URL)
             .build()
 
         FirebaseApp.initializeApp(options)
