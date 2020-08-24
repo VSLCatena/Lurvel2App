@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     SpringApplication.run(Lurvel2AppMain::class.java, *args)
 
     // We run it as daemon so it stops when our spring application stops
-    fixedRateTimer("UpdateCommittees", true, 0L, 60 * 60 * 1000) {
+    fixedRateTimer("UpdateCommittees", true, 60 * 1000, 60 * 60 * 1000) {
         FirebaseConnection.updateCommittees()
     }
 }
