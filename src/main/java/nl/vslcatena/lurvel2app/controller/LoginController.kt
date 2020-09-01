@@ -1,4 +1,4 @@
-package nl.vslcatena.lurvel2app
+package nl.vslcatena.lurvel2app.controller
 
 import nl.vslcatena.lurvel2app.connections.FirebaseConnection
 import nl.vslcatena.lurvel2app.connections.LurvelConnection

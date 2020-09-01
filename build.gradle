@@ -1,7 +1,7 @@
 buildscript {
     ext.kotlin_version = '1.4.0'
     ext.spring_boot_version = '2.1.2.RELEASE'
-    ext.firebase_admin_version = '6.7.0'
+    ext.firebase_admin_version = '7.0.0'
 
     repositories {
         mavenCentral()
@@ -57,7 +57,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.springframework.boot:spring-boot-starter-parent:$spring_boot_version"
     implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_version"
-    implementation "com.google.firebase:firebase-admin:$firebase_admin_version"
     implementation "com.google.firebase:firebase-admin:$firebase_admin_version"
     implementation "com.squareup.retrofit2:retrofit:2.3.0"
     implementation "com.squareup.retrofit2:converter-gson:2.3.0"

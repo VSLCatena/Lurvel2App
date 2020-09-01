@@ -5,3 +5,4 @@ out/*
 .env
 src/main/resources/application.properties
 serviceAccountKey.json
+build/*

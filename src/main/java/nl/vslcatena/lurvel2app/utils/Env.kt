@@ -1,10 +1,10 @@
 package nl.vslcatena.lurvel2app.utils
 
-import java.io.File
-
 object Env {
     var LURVEL_URL: String = ""
     var FIREBASE_URL: String = ""
+
+    var SERVER_PORT: String = ""
 
     init {
         val file = FileUtils.fromExternal(".env")
@@ -14,8 +14,9 @@ object Env {
             file.createNewFile()
             file.writeText(
                 FileUtils.inputFromResources(".env.example")
-                    .bufferedReader()
-                    .readText()
+                    ?.bufferedReader()
+                    ?.readText()
+                    ?: ""
             )
         }
 

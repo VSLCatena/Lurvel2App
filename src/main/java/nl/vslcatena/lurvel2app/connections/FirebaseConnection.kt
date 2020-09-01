@@ -19,19 +19,31 @@ object FirebaseConnection {
     private val firestore: Firestore
 
     init {
-        val serviceAccount = FileUtils.fromExternal("serviceAccountKey.json").inputStream()
 
-        val options = FirebaseOptions.Builder()
-            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+        val file = FileUtils.fromExternal("serviceAccountKey.json")
+
+        // If an .env file doesn't exist, create one using the .env.example file in our resource folder
+        if (!file.exists()) {
+            file.createNewFile()
+            file.writeText(
+                FileUtils.inputFromResources("serviceAccountKey.json.example")
+                    ?.bufferedReader()
+                    ?.readText()
+                    ?: ""
+            )
+        }
+        val serviceAccount = file.inputStream()
+        val credentials = GoogleCredentials.fromStream(serviceAccount)
+
+        val options = FirebaseOptions.builder()
+            .setCredentials(credentials)
             .setDatabaseUrl(Env.FIREBASE_URL)
             .build()
 
         FirebaseApp.initializeApp(options)
 
 
-
-        val firestoreOptions = FirestoreOptions.newBuilder().setTimestampsInSnapshotsEnabled(true).build()
-        firestore = firestoreOptions.service
+        firestore = FirestoreClient.getFirestore()
     }
 
     fun updateCommittees() {
